@@ -301,10 +301,20 @@
 
                     </select>
             </div>
-            
+
             <div class="mt-4">
-                <label for="cin/passport" >Cin/Passport</label>
-                <input id="cin/passport" class="block mt-1 w-full" type="text" name="cin/passport" required  />
+                <label for="password" >Password</label>
+                <input id="password" class="block mt-1 w-full" type="password"name="password" required  />
+            </div>
+
+            <div class="mt-4">
+                <label for="confirm" >Confimation password</label>
+                <input id="confirm" class="block mt-1 w-full" type="password" name="confirm" required  />
+            </div>
+
+            <div class="mt-4">
+                <label for="cin" >Cin/Passport</label>
+                <input id="cin" class="block mt-1 w-full" type="text" name="cin" required  />
             </div>
 
             <div class="mt-4">

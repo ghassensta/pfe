@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('nationalite')->nullable();
-            $table->integer('cin/passport')->nullable();
+            $table->string('password')->nullable();
+            $table->string('confirm')->nullable();
+            $table->integer('cin')->nullable();
             $table->string('document')->nullable();
             $table->string('dateobtention')->unique();
             $table->string('etat')->nullable();

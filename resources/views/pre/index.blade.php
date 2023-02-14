@@ -21,11 +21,10 @@
             <tr>
                 <th>name</th>
                 <th>email</th>
-                <th>Date de naissance</th>
-                <th>Telephone</th>
                 <th>Nationalitè</th>
-                <th>Adresse</th>
-                <th>Code postal</th>
+                <th>Password</th>
+                <th>Confimation password</th>
+                <th>Cin/Passport</th>
                 <th>Permis d'exercice</th>
                 <th>Numèro d'inscrption au conseil de l'ordre </th>
 
@@ -38,11 +37,10 @@
                 <tr>
                     <td>{{ $sc->name }}</td>
                     <td>{{ $sc->email }}</td>
-                    <td>{{ $sc->naiss }}</td>
-                    <td>{{ $sc->tel }}</td>
                     <td>{{ $sc->nationalite }}</td>
-                    <td>{{ $sc->adresse }}</td>
-                    <td>{{ $sc->codepostal }}</td>
+                    <td>{{ $sc->password }}</td>
+                    <td>{{ $sc->confirm }}</td>
+                    <td>{{ $sc->cin }}</td>
                     <td style="width:50px; height:50px; align-items:center; border-radius:50%;  rgba(0,0,0,0.75);" src="{{asset('assets/images/document') }}/{{$sc->document}}" ></td>
                     <td>{{ $sc->dateobtention }}</td>
 

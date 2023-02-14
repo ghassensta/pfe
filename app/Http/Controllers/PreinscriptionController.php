@@ -48,17 +48,16 @@ class PreinscriptionController extends Controller
     {
         $senior=new Presenior();
 
-        $senior->name = $request->input('name');
-        $senior-> email = $request->input('email');
-        $senior->  naiss = $request->input('naiss');
-        $senior->  tel = $request->input('tel');
+        $senior->  name = $request->input('name');
+        $senior->  email = $request->input('email');
         $senior->  nationalite = $request->input('nationalite');
-        $senior->  adresse = $request->input('adresse');
-        $senior->  codepostal = $request->input('codepostal');
+        $senior->  password = $request->input('password');
+        $senior->  confirm = $request->input('confirm');
+        $senior->  cin = $request->input('cin');
         $senior->  document = $request->input('document');
         $senior->  dateobtention = $request->input('dateobtention');
 
-                
+
 
         $senior->save();
 

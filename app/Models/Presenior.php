@@ -9,6 +9,6 @@ class Presenior extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'name','email','naiss','tel','nationalite','adresse','codepostal','document','dateobtention','etat'
+        'name','email','nationalite','password','confirm','cin','document','dateobtention','etat'
     ];
 }
