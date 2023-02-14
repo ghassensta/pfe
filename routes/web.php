@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PreinscriptionController;
 use Illuminate\Support\Facades\Route;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+route::get('/home',[PreinscriptionController::class,'index'])->name('home.pre');
+
+route::get('home/create',[PreinscriptionController::class,'create'])->name('home.cerate');
+
+route::post('home/store',[PreinscriptionController::class,'store'])->name('home.store');
+
+
+
 
 Route::middleware([
     'auth:sanctum',

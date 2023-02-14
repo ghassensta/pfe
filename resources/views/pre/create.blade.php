@@ -4,37 +4,47 @@
             <authentication-card-logo />
         </x-slot>
 
+
+
+        <style>
+            form{
+                width: 45%;
+                margin: auto ;
+            }
+            .buton{
+                  margin: 20px;
+                justify-content: center;
+                align-items:center;
+                padding: 20px;
+                background-color: rgb(33, 33, 174);
+                color: whitesmoke;
+                border-radius: 15px;
+            }
+        </style>
         <validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form  action="{{ route('home.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div>
-                <label for="name" ></label>
+                <label for="name" >Name</label>
                 <input id="name" class="block mt-1 w-full" type="text" name="name" required  />
             </div>
 
             <div class="mt-4">
-                <label for="email" ></label>
+                <label for="email" >Email</label>
                 <input id="email" class="block mt-1 w-full" type="email" name="email"  required />
-            </div>
-
-            <div class="mt-4">
-                <label for="naiss"  ></label>
-                <input id="naiss" class="block mt-1 w-full" type="date" name="naiss"  required />
-            </div>
-
-            <div class="mt-4">
-                <label for="tel"  ></label>
-                <input id="tel" class="block mt-1 w-full" type="text" name="tel"  required />
             </div>
 
 
             <div class="mt-4">
 
                 <label for="nationalite">Nationalitè</label>
-                <select class="block mt-1 w-full" name="nationalite">
-                    <option value="France" selected="selected">France </option>
+                <select class="block mt-1 w-full" name="nationalite" required>
+                    <option value="France" selected="selected">Pays </option>
+
+
+                    <option value="France" >France </option>
 
                     <option value="Afghanistan">Afghanistan </option>
                     <option value="Afrique_Centrale">Afrique_Centrale </option>
@@ -291,33 +301,28 @@
 
                     </select>
             </div>
-
+            
             <div class="mt-4">
-                <label for="adresse" ></label>
-                <input id="adresse" class="block mt-1 w-full" type="text" name="adresse"  required />
-            </div>
-            <div class="mt-4">
-                <label for="codepostal" ></label>
-                <input id="codepostal" class="block mt-1 w-full" type="text" name="codepostal"  required />
+                <label for="cin/passport" >Cin/Passport</label>
+                <input id="cin/passport" class="block mt-1 w-full" type="text" name="cin/passport" required  />
             </div>
 
             <div class="mt-4">
-                <label for="cin/passport" ></label>
-                <input id="cin/passport" class="block mt-1 w-full" type="text" name="cin/passport"  required />
-            </div>
-
-            <div class="mt-4">
-                <label for="document" ></label>
+                <label for="document" >Permis d'exercice</label>
                 <input id="document" class="block mt-1 w-full" type="file" name="document"  required />
             </div>
 
             <div class="mt-4">
-                <label for="dateobtention" ></label>
-                <input id="dateobtention" class="block mt-1 w-full" type="date" name="dateobtention"  required />
+                <label for="dateobtention" >Numèro d'inscrption au conseil de l'ordre</label>
+                <input id="dateobtention" class="block mt-1 w-full" type="text" name="dateobtention" required  />
             </div>
 
+            <div class="mt-8">
+                <button type="submit" class="buton" name="button">Submit</button>
+            </div>
 
 
         </form>
     </authentication-card>
 </x-guest-layout>
+

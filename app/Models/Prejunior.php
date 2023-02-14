@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Prejunior extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'name','email','naiss','tel','nationalite','adresse','codepostal','document','atestation',
+    ];
 }
