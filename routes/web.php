@@ -3,6 +3,9 @@
 use App\Http\Controllers\PreinscriptionController;
 use Illuminate\Support\Facades\Route;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
+ use App\Http\Controllers\UserController;
+
+ 
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +23,18 @@ use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
 
 route::get('/home',[PreinscriptionController::class,'index'])->name('home.pre');
 
-route::get('home/create',[PreinscriptionController::class,'create'])->name('home.cerate');
+
+route::get('home/create',[PreinscriptionController::class,'create'])->name('home.create');
 
 route::post('home/store',[PreinscriptionController::class,'store'])->name('home.store');
 
+
+
+route::get('/user',[UserController::class,'index'])->name('users.index');
+route::post('/preinscription/{id}/accepter', [UserController::class, 'accepter'])->name('preinscription.accepter');
+
+
+Route::post('/upload-image', [ImageController::class, 'uploadImage'])->name('upload-image');
 
 
 

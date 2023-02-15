@@ -27,7 +27,7 @@
                 <th>Cin/Passport</th>
                 <th>Permis d'exercice</th>
                 <th>Numèro d'inscrption au conseil de l'ordre </th>
-
+                  <th>Validation</th>
 
 
             </tr>
@@ -41,11 +41,13 @@
                     <td>{{ $sc->password }}</td>
                     <td>{{ $sc->confirm }}</td>
                     <td>{{ $sc->cin }}</td>
-                    <td style="width:50px; height:50px; align-items:center; border-radius:50%;  rgba(0,0,0,0.75);" src="{{asset('assets/images/document') }}/{{$sc->document}}" ></td>
+                    <td> <img  style="width:100px; height:100px; align-items:center;  rgba(0,0,0,0.75);" src="{{asset('assets/images/document') }}/{{$sc->document}}" alt="image"></td>
                     <td>{{ $sc->dateobtention }}</td>
-
-
-
+                  <td> <form method="POST" action="{{ route('preinscription.accepter', ['id' => $sc->id]) }}">
+                        @csrf
+                        <button type="submit">Accept</button>
+                    </form>
+                  </td>
 
 
 

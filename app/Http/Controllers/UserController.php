@@ -1,20 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Presenior;
-use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Presenior;
 
-class PreinscriptionController extends Controller
+
+class UserController extends Controller
 {
-    function optimiser(object $ch, string $name): string
-    {
-        $imageName = $name .time() . '.' . $ch->extension();
-        $ch->move(public_path('assets/images/produits'), $imageName);
-        return $imageName;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +17,9 @@ class PreinscriptionController extends Controller
      */
     public function index()
     {
-        $senior=Presenior::all();
+        $user=User::all();
 
-        return view('pre.index', compact('senior'));
+        return view('user.index', compact('user'));
     }
 
     /**
@@ -34,8 +29,7 @@ class PreinscriptionController extends Controller
      */
     public function create()
     {
-        return view('pre.create');
-
+        //
     }
 
     /**
@@ -46,22 +40,7 @@ class PreinscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        $senior=new Presenior();
-
-        $senior->  name = $request->input('name');
-        $senior->  email = $request->input('email');
-        $senior->  nationalite = $request->input('nationalite');
-        $senior->  password = $request->input('password');
-        $senior->  confirm = $request->input('confirm');
-        $senior->  cin = $request->input('cin');
-        $senior->  document = $request->input('document');
-        $senior->  dateobtention = $request->input('dateobtention');
-
-
-
-        $senior->save();
-
-        return redirect()->route('home.pre');
+        //
     }
 
     /**
@@ -108,6 +87,29 @@ class PreinscriptionController extends Controller
     {
         //
     }
+
+    public function accepter($id)
+    {
+        $preinscription = Presenior::find($id);
     
+        if ($preinscription) {
+           // $preinscription->accepted = true;
+            $preinscription->save();
+    
+            $user = new User();
+            $user->name = $preinscription->name;
+            $user->email = $preinscription->email;
+            $user->password = Hash::make($preinscription->password);
+            $user->status ='senior';
+
+            $user->save();
+        }
+        session()->flash('success', 'The user has been registered successfully.');
+ return redirect()->route('users.index');
+   //   return redirect()->route('register')->withInput($preinscription->toArray());
+
     
     }
+       
+
+}

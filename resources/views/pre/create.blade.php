@@ -317,15 +317,31 @@
                 <input id="cin" class="block mt-1 w-full" type="text" name="cin" required  />
             </div>
 
-            <div class="mt-4">
+           {{--  <div class="mt-4">
                 <label for="document" >Permis d'exercice</label>
-                <input id="document" class="block mt-1 w-full" type="file" name="document"  required />
+              {{--   <div>
+                <form method="POST" action="{{ route('upload-image') }}" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="image">
+                </form>
+                </div> 
+                                
             </div>
 
             <div class="mt-4">
                 <label for="dateobtention" >Numèro d'inscrption au conseil de l'ordre</label>
                 <input id="dateobtention" class="block mt-1 w-full" type="text" name="dateobtention" required  />
             </div>
+ --}}
+<div class="mt-8">
+    <form action="/checkbox-example" method="POST">
+        @csrf
+        
+        <label>Which status are you?</label><br/>
+        <input type="checkbox" name="senior" value="senior"> Senior <br/>
+        <input type="checkbox" name="junior" value="junior"> Junior <br/>
+    </form>
+</div>
 
             <div class="mt-8">
                 <button type="submit" class="buton" name="button">Submit</button>
